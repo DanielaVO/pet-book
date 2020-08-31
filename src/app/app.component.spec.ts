@@ -14,22 +14,22 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('Cuando se inicie la aplicación, debe crear el componente AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'pet-book'`, () => {
+  it(`Cuando inicie la aplicación debe tener de título 'pet-book'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('pet-book');
   });
 
-  it('should render title', () => {
+  it('Cuando inicie la aplicación debe renderizar el compomente raíz', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('pet-book app is running!');
+    expect(compiled.querySelector('#root-component')).not.toBeNull();
   });
 });
