@@ -2,15 +2,14 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { GalleryComponent } from "./image-gallery.component";
 import { ImageService } from "../image.service";
-import { FilterimagesPipe } from "../filterimages.pipe";
+import { MockPipe } from "../MokePipe.pipe";
 
 describe("ImageGalleryComponent", () => {
   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GalleryComponent, FilterimagesPipe],
+      declarations: [GalleryComponent, MockPipe],
       providers: [
         {
           provide: ImageService,
@@ -53,11 +52,19 @@ describe("ImageGalleryComponent", () => {
   });
 
   it("Cuando se cargue el componente debe tener 3 botones con los valores All, Perro y Gato", () => {
-    const buttons = fixture.nativeElement.querySelectorAll("#filterButtons .btn");
+    const buttons = fixture.nativeElement.querySelectorAll(
+      "#filterButtons .btn"
+    );
     expect(buttons).toBeDefined();
     const innerTexts = ["All", "Perro", "Gato"];
-    [].forEach.call(buttons, (button) => {
-      const index = innerTexts.findIndex((item) => item === button.innerText);
+    [].forEach.call(innerTexts, (text) => {
+      let index = -1;
+      for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].innerText === text) {
+          index = i;
+          break;
+        }
+      }
       expect(index).toBeGreaterThanOrEqual(0);
     });
   });

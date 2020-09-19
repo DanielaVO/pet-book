@@ -3,6 +3,7 @@ import using from "jasmine-data-provider";
 
 describe("FilterimagesPipe", () => {
   let pipe: FilterimagesPipe;
+
   const ImagesDetails = [
     { id: 1, brand: "perro", url: "assets/images/perro1.jpg" },
     { id: 2, brand: "perro", url: "assets/images/perro2.jpg" },
@@ -14,6 +15,7 @@ describe("FilterimagesPipe", () => {
   beforeEach(() => {
     pipe = new FilterimagesPipe();
   });
+
   it("Cuando se inicie el pipe, debe crear una instancia del filtro", () => {
     expect(pipe).toBeTruthy();
   });
