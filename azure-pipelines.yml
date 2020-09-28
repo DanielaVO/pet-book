@@ -31,3 +31,4 @@ steps:
     pollingTimeoutSec: '300'
 
 - task: SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
