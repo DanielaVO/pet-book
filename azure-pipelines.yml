@@ -25,8 +25,7 @@ steps:
     organization: 'danielavo'
     scannerMode: 'MSBuild'
     projectKey: 'sonarcloud'
-    checkLatest: true
-
+   
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
