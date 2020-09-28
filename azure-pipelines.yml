@@ -4,8 +4,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x'
-    checkLatest: true
+    versionSpec: '10.x'
 
 - task: CmdLine@2
   displayName: 'build'
@@ -19,3 +18,17 @@ steps:
   displayName: 'Unit test'
   inputs:
     script: 'npm run test-ci'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'danielavo'
+    scannerMode: 'MSBuild'
+    projectKey: 'sonarcloud'
+    checkLatest: true
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: SonarCloudAnalyze@1
