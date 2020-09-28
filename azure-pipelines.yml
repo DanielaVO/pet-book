@@ -20,19 +20,16 @@ steps:
     script: 'npm run test-ci'
    
 - task: SonarCloudPrepare@1
+  displayName: 'Preparacion de analisis'
   inputs:
     SonarCloud: 'sonarcloud'
     organization: 'danielavo'
     scannerMode: 'CLI'
 
 - task: SonarCloudAnalyze@1
-  displayName: 'Run Code Analysis'
+  displayName: 'Analisis de codigo'
 
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
 
-- task: sonarcloud-buildbreaker@2
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'danielavo'
