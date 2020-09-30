@@ -2,16 +2,26 @@
 pool:
   vmImage: 'ubuntu-latest'
 steps:
-- task: CmdLine@2
-  inputs:
-    script: |
-      npm install -g @angular/cli
-      npm install
-      ng build --prod
 - task: NodeTool@0
   inputs:
     versionSpec: '6.x'
     checkLatest: true
 - task: CmdLine@2
+  displayName: 'build'
+  inputs:
+    script: |
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+
+- task: CmdLine@2
   inputs:
     script: 'npm run test-cli'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'petBook_service'
+    organization: 'valentinalenisudem'
+    scannerMode: 'MSBuild'
+    projectKey: 'pet-book-udem'
+    projectName: 'pet-book-udem'
+- task: SonarCloudAnalyze@1
