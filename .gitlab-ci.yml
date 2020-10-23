@@ -53,7 +53,7 @@ sonarcloud-check:
   script:
     - sonar-scanner
   only:
-    - master
+    - master  
 
 build_master:
   before_script:
