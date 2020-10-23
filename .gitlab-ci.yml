@@ -5,9 +5,9 @@ include:
 image: registry.gitlab.com/mastic/angular-cli:latest
 
 stages:
+  - build
   - test
   - sonar-check
-  - build
   - upload
   - deploy
   
