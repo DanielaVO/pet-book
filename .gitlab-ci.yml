@@ -56,7 +56,8 @@ sonarcloud-check:
     - master  
 
 build_master:
-  image: node:4.2.2
+  before_script:
+    - npm install
   stage: build
   script:
   - npm run build --prod
