@@ -56,8 +56,7 @@ sonarcloud-check:
     - master  
 
 build_master:
-  before_script:
-    - npm install
+  image: trion/ng-cli
   stage: build
   script:
   - npm run build --prod
