@@ -54,7 +54,7 @@ sonarcloud-check:
     - sonar-scanner
   only:
     - master  
-
+    
 build_master:
   before_script:
     - npm install
