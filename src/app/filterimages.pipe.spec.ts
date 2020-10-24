@@ -1,7 +1,7 @@
 import { FilterimagesPipe } from "./filterimages.pipe";
 import using from "jasmine-data-provider";
 
-describe("FilterimagesPipe", () => {
+xdescribe("FilterimagesPipe", () => {
   let pipe: FilterimagesPipe;
 
   const ImagesDetails = [
