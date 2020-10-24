@@ -5,8 +5,8 @@ include:
 image: registry.gitlab.com/mastic/angular-cli:latest
 
 stages:
-  - sonar-check
   - test
+  - sonar-check
   - build
   - upload
   
@@ -55,8 +55,6 @@ sonarcloud-check:
     - master  
     
 build_master:
-  before_script:
-    - npm install
   stage: build
   script:
   - npm run build --prod
