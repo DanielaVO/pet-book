@@ -21,22 +21,21 @@ cache:
   - node_modules/
   - dist/  
 
-#.test:
-#  stage: test
-#  image: registry.gitlab.com/mastic/puppeteer:latest
-#  cache:
-#    policy: pull
-#  artifacts:
-#    untracked: true
-#    when: always
-#    expire_in: 1 week
-#    reports:
-#      junit: TESTS-*.xml
+.test:
+  stage: test
+  image: registry.gitlab.com/mastic/puppeteer:latest
+  cache:
+    policy: pull
+  artifacts:
+    untracked: true
+    when: always
+    expire_in: 1 week
+    reports:
+      junit: TESTS-*.xml
 
 test_code:
   stage: test
-  image: registry.gitlab.com/mastic/puppeteer:latest
-#  extends: .test
+  extends: .test
   script:
   - npm run test-ci
   only: ['master']
