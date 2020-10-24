@@ -36,7 +36,7 @@ cache:
 test_code:
   stage: test
   image: registry.gitlab.com/mastic/puppeteer:latest
-  extends: .test
+#  extends: .test
   script:
   - npm run test-ci
   only: ['master']
