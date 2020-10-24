@@ -4,7 +4,7 @@ import { GalleryComponent } from "./image-gallery.component";
 import { ImageService } from "../image.service";
 import { MockPipe } from "../MokePipe.pipe";
 
-xdescribe("ImageGalleryComponent", () => {
+describe("ImageGalleryComponent", () => {
   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
   beforeEach(async(() => {
