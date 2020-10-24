@@ -5,11 +5,10 @@ include:
 image: registry.gitlab.com/mastic/angular-cli:latest
 
 stages:
-  - build
-  - test
   - sonar-check
+  - test
+  - build
   - upload
-  - deploy
   
 before_script:
   - npm install
