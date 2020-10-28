@@ -6,17 +6,13 @@ steps:
   inputs:
     versionSpec: '6.x'
     checkLatest: true
-- task: CmdLine@2
-  displayName: 'build'
+- task: Npm@1
   inputs:
-    script: |
-      npm install -g @angular/cli
-      npm install
-      ng build --prod
-
-- task: CmdLine@2
+    command: 'install'
+- task: Npm@1
   inputs:
-    script: 'npm run test-cli'
+    command: 'custom'
+    customCommand: 'run test-ci'
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'Sonar-Cloud'
@@ -25,3 +21,8 @@ steps:
     projectKey: 'pet-book-udem'
     projectName: 'pet-book-udem'
 - task: SonarCloudAnalyze@1
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build --prod'
