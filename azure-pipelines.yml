@@ -18,7 +18,9 @@ steps:
     SonarCloud: 'Sonar-Cloud-Dani'
     organization: 'danielavo'
     scannerMode: 'CLI'
-    configMode: 'file'
+    configMode: 'manual'
+    cliProjectKey: 'DanielaVO_pet-book'
+    cliSources: '.'
 - task: SonarCloudAnalyze@1
 
 - task: Npm@1
