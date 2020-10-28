@@ -17,8 +17,8 @@ steps:
   inputs:
     SonarCloud: 'Sonar-Cloud-Dani'
     organization: 'danielavo'
-    scannerMode: 'MSBuild'
-    projectKey: 'DanielaVO_pet-book'
+    scannerMode: 'CLI'
+    configMode: 'file'
 - task: SonarCloudAnalyze@1
 
 - task: Npm@1
