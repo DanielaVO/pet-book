@@ -19,7 +19,7 @@ steps:
     script: 'npm run test-cli'
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'petBook_service'
+    SonarCloud: 'Sonar-Cloud'
     organization: 'valentinalenisudem'
     scannerMode: 'MSBuild'
     projectKey: 'pet-book-udem'
