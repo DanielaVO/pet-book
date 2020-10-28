@@ -4,24 +4,26 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x'
-    checkLatest: true
-- task: CmdLine@2
-  displayName: 'build'
-  inputs:
-    script: |
-      npm install -g @angular/cli
-      npm install
-      ng build --prod
+    versionSpec: '12.x'
 
-- task: CmdLine@2
+- task: Npm@1
   inputs:
-    script: 'npm run test-cli'
+    command: 'install'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run test-ci'
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'petBook_service'
-    organization: 'valentinalenisudem'
-    scannerMode: 'MSBuild'
-    projectKey: 'pet-book-udem'
-    projectName: 'pet-book-udem'
+    SonarCloud: 'Sonar-Cloud-Dani'
+    organization: 'danielavo'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'DanielaVO_pet-book'
+    cliSources: '.'
 - task: SonarCloudAnalyze@1
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build --prod'
