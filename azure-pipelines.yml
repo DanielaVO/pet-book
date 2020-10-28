@@ -15,8 +15,8 @@ steps:
     customCommand: 'run test-ci'
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'Sonar-Cloud'
-    organization: 'valentinalenisudem'
+    SonarCloud: 'Sonar-Cloud-Dani'
+    organization: 'danielavo'
     scannerMode: 'MSBuild'
     projectKey: 'pet-book-udem'
     projectName: 'pet-book-udem'
