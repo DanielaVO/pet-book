@@ -41,3 +41,10 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run build --prod'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker-Sebas'
+    repository: 'sebassllr/pet-book'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
