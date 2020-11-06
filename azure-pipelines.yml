@@ -7,13 +7,16 @@ steps:
     versionSpec: '12.x'
 
 - task: Npm@1
+  displayName: "Install"
   inputs:
     command: 'install'
 - task: Npm@1
+  displayName: "Test"
   inputs:
     command: 'custom'
     customCommand: 'run test-ci'
 - task: SonarCloudPrepare@1
+  displayName: "Sonar Cloud Preparation"
   inputs:
     SonarCloud: 'Sonar-Cloud-Dani'
     organization: 'danielavo'
@@ -36,13 +39,16 @@ steps:
       sonar.ts.tslint.configPath=tslint.json
       sonar.typescript.lcov.reportPaths=coverage/lcov.info
 - task: SonarCloudAnalyze@1
+  displayName: "Sonar Cloud Analysis"
 
 - task: Npm@1
+  displayName: "Build"
   inputs:
     command: 'custom'
     customCommand: 'run build --prod'
 
 - task: Docker@2
+  displayName: "Docker build and push"
   inputs:
     containerRegistry: 'Docker-Sebas'
     repository: 'sebassllr/pet-book'
